@@ -1,0 +1,36 @@
+table {
+    border-collapse: collapse;
+    margin: 20px 0;
+    overflow-x: auto;
+}
+
+tr {
+    background-color: #ffffff;
+    border-top: 1px solid #e2e2e3;
+    transition: background-color .5s;
+}
+
+tr:nth-child(2n) {
+    background-color: #f6f6f7;
+}
+
+th, td {
+    border: 1px solid #e2e2e3;
+    padding: 8px 16px;
+}
+
+th {
+    text-align: left;
+    color: #67676c;
+    background-color: #f6f6f7;
+}
+
+th p {
+    padding: 5px 0; margin: 0;
+}
+
+hr {
+    margin: 16px 0;
+    border: none;
+    border-top: 1px solid #e2e2e3;
+}
