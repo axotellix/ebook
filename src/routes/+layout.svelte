@@ -7,5 +7,9 @@
 
 <Sidebar />
 
-<!-- <slot /> -->
 {@render children()}
+
+<nav class="page-switch">
+    <button>prev</button>
+    <button>next</button>
+</nav>

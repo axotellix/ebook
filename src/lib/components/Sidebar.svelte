@@ -1,5 +1,8 @@
 <script>
+    import { page } from '$app/state'
 
+    let chapter = $derived(page.url.pathname.slice(1))
+    
 </script>
 
 <nav class="sidebar">
@@ -10,15 +13,15 @@
     </h2>
     <p><strong>СОДЕРЖАНИЕ</strong></p>
     <ul class="table-of-contents">
-        <li><a href="/0/#_Toc193796560">ВВЕДЕНИЕ <span>2</span></a></li>
-        <li>
+        <li class:navActive={ chapter === "0" }><a href="/0/#_Toc193796560">ВВЕДЕНИЕ <span>2</span></a></li>
+        <li class:navActive={ chapter === "1" }>
             <a href="/1/#_Toc193796561">Тема 1. Теория организаций <span>3</span></a>
             <ul>
                 <li><a href="/1/#_Toc193796562">1.1. Организация как система <span>3</span></a></li>
                 <li><a href="/1/#_Toc193796563">1.2. Организационные системы <span>4</span></a></li>
             </ul>
         </li>
-        <li>
+        <li class:navActive={ chapter === "2" }>
             <a href="/2/#_Toc193796564">Тема 2. Организационная структура <span>10</span></a>
             <ul>
                 <li><a href="/2/#_Toc193796565">2.1. Понятие, типы и виды организации <span>10</span></a></li>
@@ -26,7 +29,7 @@
                 <li><a href="/2/#_Toc193796567">2.3. Признаки, структура, элементы социальной организации <span>15</span></a></li>
             </ul>
         </li>
-        <li>
+        <li class:navActive={ chapter === "3" }>
             <a href="/3/#_Toc193796568">Тема 3. Лидерология и понятие лидерства <span>21</span></a>
             <ul>
                 <li><a href="/3/#_Toc193796569">3.1. Содержание и направления использования лидерологии <span>21</span></a></li>

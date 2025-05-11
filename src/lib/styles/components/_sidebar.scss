@@ -49,6 +49,11 @@
         background: #e2e2e3;
         @include align(center, bottom);
     }
+
+    &.navActive > a {
+        font-weight: bold;
+        background: var(--c-white);
+    }
 }
 
 .table-of-contents li a {
