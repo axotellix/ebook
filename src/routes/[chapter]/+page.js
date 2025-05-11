@@ -1,23 +1,22 @@
 export async function load({ params }) {
+
+    // get > chapter from URL
     const chapter = params.chapter
 
-    const chapters = {
-        "0": () => import('$lib/chapters/0.svelte'),
-        "1": () => import('$lib/chapters/1.svelte'),
-        "2": () => import('$lib/chapters/2.svelte'),
-        "3": () => import('$lib/chapters/3.svelte'),
-    }
+    // load > chapter content 
+    const module = await import(`$lib/chapters/${chapter}.svelte`)
+    
 
-    const loader = chapters[chapter]
-    if (!loader) {
+    // return > chapter content
+    if (!module) {
         return {
             status: 404,
             error: new Error('Chapter not found')
         }
+    } else {
+        return {
+            content: module.default
+        }
     }
 
-    const module = await loader()
-    return {
-        content: module.default
-    }
 }
