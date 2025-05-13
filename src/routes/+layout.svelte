@@ -5,11 +5,22 @@
     let { children } = $props();
 </script>
 
-<Sidebar />
+<div class="app">
 
-{@render children()}
+    <!-- [ Sidebar ] -->
+    <Sidebar />
 
-<nav class="page-switch">
-    <button>prev</button>
-    <button>next</button>
-</nav>
+    <main>
+
+        <!-- [ Chapter content ] -->
+        {@render children()}
+
+        <!-- [ Pagination ] -->
+        <nav class="page-switch">
+            <button>prev</button>
+            <button>next</button>
+        </nav>
+
+    </main>
+
+</div>

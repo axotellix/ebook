@@ -1,21 +1,22 @@
 @use "../presets/mixins" as *;
 
 .sidebar {
+    position: sticky;
     display: block;
-    position: fixed;
     top: 0;
-    left: 0;
     width: 520px;
+    flex: 0 0 520px;
     height: 100%;
+    max-height: 100vh;
     padding: 16px;
     padding-right: 10px;
+    overflow: hidden;
     background-color: var(--c-lite);
     box-sizing: border-box;
     @include flex-align(flex-start, flex-start, column);
 }
 
 .table-of-contents {
-    display: block;
     padding-left: 0;
     padding-right: 15px;
     margin: 0;
@@ -49,14 +50,43 @@
         background: #e2e2e3;
         @include align(center, bottom);
     }
-
-    &.navActive > a {
-        font-weight: bold;
-        background: var(--c-white);
-    }
+}
+//: top level li link
+.table-of-contents > li > a {
+    padding: 0 10px;
+    font-weight: 500;
 }
 
+
+//: childer li elements container
+.table-of-contents li ul {
+    padding: 0;
+}
+
+//: children li elements` links
+.table-of-contents li li a {
+    padding: 6px 10px;
+    border-radius: var(--b-radius-sm);
+
+    &:hover {
+        background: var(--c-dark-white);
+    }
+} 
+
+//: li links
 .table-of-contents li a {
+    position: relative;
     font-size: 1.2rem;
+    gap: 10px;
     @include flex-align(space-between, flex-start);
+}
+
+//: active nav item
+.table-of-contents li.navActive > a {
+    position: relative;
+    padding: 10px;
+    box-sizing: content-box;
+    font-weight: bold;
+    background: var(--c-white);
+    border-radius: var(--b-radius-sm);
 }

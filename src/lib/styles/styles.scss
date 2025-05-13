@@ -2,7 +2,9 @@
 // [ MAIN STYLES ]
 // @import url("https://cdn.jsdelivr.net/npm/water.css@2/out/water.css");
 @use "water.css";
+@use "_general.scss";
 @use "_spec.scss";
+@use "_typography.scss";
 
 // [ PRESETS ]
 @use "presets/_vars.scss";
@@ -13,9 +15,4 @@
 @use "components/_sidebar.scss";
 
 
-h1 + h1 {
-    margin-top: 0;
-}
-h1 ~ h1 {
-    margin-bottom: 0;
-}
+
