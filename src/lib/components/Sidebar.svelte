@@ -1,11 +1,36 @@
 <script>
+    // [ other ]
     import { page } from '$app/state'
+    import { fade } from 'svelte/transition'
 
+    // [ PRESETS ]
     let chapter = $derived(page.url.pathname.slice(1))
+    let sidebarOpen = $state(true)
+    let { passSidebarState } = $props();
+
+    // [ FUCNCTIONS ]
+    const hideSidebar = () => { 
+        sidebarOpen = false
+        passSidebarState(sidebarOpen)
+    }
+    const openSidebar = () => { 
+        sidebarOpen = true
+        passSidebarState(sidebarOpen)
+    }
     
 </script>
 
-<nav class="sidebar">
+<!-- [ btn: hide Sidebar ] -->
+{#if !sidebarOpen}
+<button onclick={ openSidebar } style="position: absolute; top: 20px; left: 20px;" in:fade={{ delay: 200, duration: 200 }}>
+    <i class="icon-menu"></i>
+</button>
+{/if}
+
+<!-- [ Sidebar ] -->
+<nav class="sidebar" class:sidebarClosed={ !sidebarOpen }>
+    <button onclick={ hideSidebar }><i class="icon-close"></i></button>
+
     <h2>
         Бусурина Л.Ю., Джанхуватова З.С.
         <br />
