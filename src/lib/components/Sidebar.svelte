@@ -22,14 +22,14 @@
 
 <!-- [ btn: hide Sidebar ] -->
 {#if !sidebarOpen}
-<button onclick={ openSidebar } style="position: absolute; top: 20px; left: 20px;" in:fade={{ delay: 200, duration: 200 }}>
+<button class="btn-sm" onclick={ openSidebar } style="position: absolute; top: 20px; left: 20px;" in:fade={{ delay: 200, duration: 200 }}>
     <i class="icon-menu"></i>
 </button>
 {/if}
 
 <!-- [ Sidebar ] -->
 <nav class="sidebar" class:sidebarClosed={ !sidebarOpen }>
-    <button onclick={ hideSidebar }><i class="icon-close"></i></button>
+    <button class="btn-sm" onclick={ hideSidebar }><i class="icon-close"></i></button>
 
     <h2>
         Бусурина Л.Ю., Джанхуватова З.С.

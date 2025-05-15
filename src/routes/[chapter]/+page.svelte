@@ -2,4 +2,9 @@
     let { data } = $props()
 </script>
 
-{@render data.content()}
+{#if data?.content}
+    {@render data?.content()}
+{:else}
+    <h2>Error</h2>
+    <p>No chapter found.</p>
+{/if}

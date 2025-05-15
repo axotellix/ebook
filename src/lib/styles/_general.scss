@@ -19,10 +19,10 @@ body {
     @include flex-align(flex-start, flex-start);
 }
 
-//: [ sidebar ] (components/sidebar.scss)
+// [ sidebar ] (components/sidebar.scss)
 // ...
 
-//: [ chapter content ]
+// [ chapter content ]
 main {
     max-width: 55%;
     flex-grow: 1;
@@ -33,4 +33,10 @@ main {
         margin: 0 auto;
         padding-left: 20px;
     }
+}
+
+
+// [ pagination ]
+.chapter-switch {
+    margin-top: 40px;
 }

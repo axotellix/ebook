@@ -1,0 +1,11 @@
+
+.btn-sm {
+    width: auto; height: auto;
+    padding: 10px !important;
+}
+
+.btn-inactive {
+    cursor: default;
+    pointer-events: none;
+    opacity: 0.5;
+}
