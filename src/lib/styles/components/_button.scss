@@ -1,10 +1,45 @@
+// [ general ]
+button, .btn {
+    display: inline-block;
+    color: #1d1d1d;
+    // background: #efefef;
+    background: var(--c-lite-20);
+    margin-right: 6px;
+    margin-bottom: 6px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    outline: none;
 
+    &:hover {
+        background: var(--c-lite-30); 
+    }
+}
+
+
+// [ mod: size ]
 .btn-sm {
+    @extend .btn;
     width: auto; height: auto;
     padding: 10px !important;
 }
 
+
+// [ mod: colour ]
+.btn-dark {
+    @extend .btn;
+    background: var(--c-white);
+    color: var(--c-dark-0);
+
+    &:hover {
+        background: var(--c-lite-40); 
+    }
+}
+
+
+// [ mod: state ]
 .btn-inactive {
+    @extend .btn;
     cursor: default;
     pointer-events: none;
     opacity: 0.5;

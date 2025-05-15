@@ -1,22 +1,26 @@
 @use "../presets/mixins" as *;
 
 .sidebar {
+    $offset: 0px;
+
     position: sticky;
     display: block;
-    top: 0;
-    width: 520px;
-    flex: 0 0 520px;
-    height: 100%;
-    max-height: 100vh;
+    top: $offset; left: $offset;
+    margin-right: 60px;
     padding: 16px;
     padding-right: 10px;
+    width: 520px;
+    flex: 0 0 520px;
+    height: calc(100% - $offset * 2);
+    max-height: calc(100vh - $offset * 2);
     overflow: hidden;
-    background-color: var(--c-lite);
+    background-color: var(--c-lite-20);
     box-sizing: border-box;
+    // border-radius: 7px;
     @include flex-align(flex-start, flex-start, column);
 
     //: hack to prevent content glitching when sidebar is open
-    * { opacity: 1; transition: opacity 0.2s 0.2s; }
+    *:not(.btn) { opacity: 1; transition: opacity 0.2s 0.2s; }
 
     &.sidebarClosed {
         width: 0;
@@ -28,6 +32,8 @@
     }
 }
 
+
+// [ TABLE OF CONTENTS CONTAINERS ]
 .table-of-contents {
     padding-left: 0;
     padding-right: 15px;
@@ -40,16 +46,33 @@
     list-style: none;
 }
 
-//: all li elements
+
+// [ CHAPTERS & SUB CHAPTERS ]
+ // chapter & subchapter
 .table-of-contents li {
     margin: 10px 0;
 }
+ //: chapter & subchapter links
+.table-of-contents li a {
+    position: relative;
+    padding: 6px 10px;
+    gap: 10px;
+    font-size: 1.2rem;
+    border-radius: var(--b-radius-sm);
+    @include flex-align(space-between, flex-start);
 
-//: top level li (except fitst one)
+    &:hover {
+        background: var(--c-dark-white);
+    }
+}
+
+
+// [ CHAPTER ]
+ //: chapter (except fitst one)
 .table-of-contents > li:not(:first-of-type) {
     margin: 30px 0;
 }
-//: top level li (all)
+ //: chapter (all)
 .table-of-contents > li {
     position: relative;
     padding-bottom: 10px;
@@ -63,37 +86,11 @@
         @include align(center, bottom);
     }
 }
-//: top level li link
+ //: chapter link
 .table-of-contents > li > a {
-    padding: 0 10px;
     font-weight: 500;
 }
-
-
-//: childer li elements container
-.table-of-contents li ul {
-    padding: 0;
-}
-
-//: children li elements` links
-.table-of-contents li li a {
-    padding: 6px 10px;
-    border-radius: var(--b-radius-sm);
-
-    &:hover {
-        background: var(--c-dark-white);
-    }
-} 
-
-//: li links
-.table-of-contents li a {
-    position: relative;
-    font-size: 1.2rem;
-    gap: 10px;
-    @include flex-align(space-between, flex-start);
-}
-
-//: active nav item
+ //: active chapter link
 .table-of-contents li.navActive > a {
     position: relative;
     padding: 10px;
@@ -101,4 +98,15 @@
     font-weight: bold;
     background: var(--c-white);
     border-radius: var(--b-radius-sm);
+}
+
+
+// [ SUB CHAPTER ]
+ //: childer li elements container
+.table-of-contents li ul {
+    padding: 0;
+}
+
+.table-of-contents li li {
+    margin: 5px 0;
 }
