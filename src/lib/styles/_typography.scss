@@ -1,14 +1,61 @@
 @use "presets/_mixins.scss" as *;
 
+// [ GENERAL ]
+html, body {
+    font-family: "Inter", sans-serif;
+}
+
+html, html *, body, body * {
+    color: var(--c-text-dark);
+}
+
+
+// [ HEADINGS ]
+h1 {
+    font-weight: 700;
+}
 h1 + h1 {
     margin-top: 0;
 }
-
 h1 ~ h1 {
     margin-bottom: 0;
 }
 
-a {
+
+
+// [ BODY TEXT ]
+p, ul, ol {
+    font-size: 18px;
+    line-height: 1.8rem;
+} 
+
+
+// [ LISTS ]
+ol:not(.sidebar ol) li, 
+ ul:not(.sidebar ul) li {
+    margin: 15px 0;
+    padding: 20px;
+    background: var(--c-lite-10);
+    border-radius: var(--b-radius-sm);
+
+    &::marker {
+        font-weight: 700;
+    }
+
+    &:hover {
+        background: var(--c-lite-30);
+    }
+} 
+
+ol.list-minimalistic li, ul.list-minimalistic li {
+    padding: 0 !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+} 
+
+
+// [ LINKS ]
+a, a * {
     color: var(--c-link);
 
     &:hover {
