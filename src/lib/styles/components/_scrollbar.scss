@@ -1,0 +1,20 @@
+// [ SCROLLBAR ]
+::-webkit-scrollbar, ::-moz-scrollbar, ::scrollbar {
+    width: 7px;
+    cursor: alias;
+}
+
+::-webkit-scrollbar-thumb, ::-moz-scrollbar-thumb, ::scrollbar-thumb {
+    background: var(--c-dark-0);
+    border-radius: 7px;
+}
+
+::-webkit-scrollbar-thumb:active, ::-moz-scrollbar-thumb:active, ::scrollbar-thumb:active  {
+    background: var(--c-dark-10);
+    transition: background 0.25s ease-in;
+}
+
+::-webkit-scrollbar-track, ::-moz-scrollbar-track, ::scrollbar-track {
+    border: none;
+    background: transparent;
+}

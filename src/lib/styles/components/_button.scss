@@ -1,15 +1,17 @@
 // [ general ]
 button, .btn {
     display: inline-block;
-    color: #1d1d1d;
-    // background: #efefef;
-    background: var(--c-lite-20);
     margin-right: 6px;
     margin-bottom: 6px;
     padding: 10px;
+    background: var(--c-lite-20);
+    font-weight: 600;
+    color: #1d1d1d;
     border: none;
     border-radius: 6px;
     outline: none;
+
+    * { color: var(--c-dark-0); }
 
     &:hover {
         background: var(--c-lite-30); 
@@ -26,7 +28,7 @@ button, .btn {
 
 
 // [ mod: colour ]
-.btn-dark {
+.btn-white {
     @extend .btn;
     background: var(--c-white);
     color: var(--c-dark-0);

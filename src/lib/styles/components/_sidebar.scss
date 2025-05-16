@@ -9,8 +9,8 @@
     margin-right: 60px;
     padding: 16px;
     padding-right: 10px;
-    width: 520px;
-    flex: 0 0 520px;
+    width: 480px;
+    flex: 0 0 480px;
     height: calc(100% - $offset * 2);
     max-height: calc(100vh - $offset * 2);
     overflow: hidden;
@@ -57,7 +57,7 @@
     position: relative;
     padding: 6px 10px;
     gap: 10px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     border-radius: var(--b-radius-sm);
     @include flex-align(space-between, flex-start);
 

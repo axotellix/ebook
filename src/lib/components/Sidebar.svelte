@@ -29,7 +29,7 @@
 
 <!-- [ Sidebar ] -->
 <nav class="sidebar" class:sidebarClosed={ !sidebarOpen }>
-    <button class="btn btn-sm btn-dark" onclick={ hideSidebar }><i class="icon-close"></i></button>
+    <button class="btn btn-sm btn-white" onclick={ hideSidebar }><i class="icon-close"></i></button>
 
     <h2>
         Бусурина Л.Ю., Джанхуватова З.С.

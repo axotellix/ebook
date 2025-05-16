@@ -22,9 +22,8 @@ h1 ~ h1 {
 }
 
 
-
 // [ BODY TEXT ]
-p, ul, ol {
+p, ul, ol, blockquote {
     font-size: 18px;
     line-height: 1.8rem;
 } 
@@ -62,3 +61,24 @@ a, a * {
         text-decoration: none;
     }
 }
+
+
+// [ SPECIAL ]
+//: highlited wrapped paragraph
+blockquote {
+    all: unset;
+    display: block;
+    padding: 20px 30px;
+    width: 92%;
+    margin: 30px auto;
+    font-style: italic;
+    background: var(--c-lite-10);
+    border-radius: var(--b-radius-sm);
+    border-left: 5px solid var(--c-lite-50);
+}
+
+//: picture captions
+.piccaption {
+    font-style: italic;
+    opacity: 0.8;
+} 
