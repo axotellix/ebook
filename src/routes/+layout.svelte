@@ -42,6 +42,16 @@
 
 <div class="app">
 
+    <!-- [ Modal ] -->
+     <dialog id="modal" class="modal" aria-modal="true" open>
+        <header class="header">
+            <h2 class="modal-title">Modal</h2>
+            <button type="button" class="btn btn-sm btn-white btn-ctrl" onclick="{() => window.modal.close()}">
+                <i class="icon-close"></i>
+            </button>
+        </header>
+     </dialog>
+
     <!-- [ Sidebar ] -->
     <Sidebar {passSidebarState} />
 

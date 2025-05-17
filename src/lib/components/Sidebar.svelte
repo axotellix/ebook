@@ -22,14 +22,17 @@
 
 <!-- [ btn: hide Sidebar ] -->
 {#if !sidebarOpen}
-<button class="btn-sm" onclick={ openSidebar } style="position: fixed; top: 20px; left: 20px;" in:fade={{ delay: 200, duration: 200 }}>
+<button class="btn-sm btn-ctrl" onclick={ openSidebar } style="position: fixed; top: 20px; left: 20px;" in:fade={{ delay: 200, duration: 200 }}>
     <i class="icon-menu"></i>
 </button>
 {/if}
 
 <!-- [ Sidebar ] -->
 <nav class="sidebar" class:sidebarClosed={ !sidebarOpen }>
-    <button class="btn btn-sm btn-white" onclick={ hideSidebar }><i class="icon-close"></i></button>
+    <div class="dummy">
+        <button class="btn btn-sm btn-white btn-ctrl" onclick={ hideSidebar }><i class="icon-close"></i></button>
+        <button class="btn btn-sm btn-white btn-ctrl" onclick="{() => window.modal.showModal()}"><i class="icon-config"></i></button>
+    </div>
 
     <h2>
         Бусурина Л.Ю., Джанхуватова З.С.
