@@ -68,7 +68,7 @@ const splitByH1 = ( h ) => {
 // set > options for the conversion
 const options = {
 	styleMap: [
-		"p[style-name='Image Caption'] => p.piccaption:fresh",
+		"p[style-name='Image Caption'] => p.pic-caption:fresh",
 		"p[style-name='Wrapped Unit Title'] => div.wrapped-unit > h5.wrapped-unit-title:fresh",
 		"p[style-name='Wrapped Unit OL'] => div.wrapped-unit > ol.wrapped-unit-ol > li:fresh",
 	],
