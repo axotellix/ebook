@@ -31,7 +31,7 @@
 <nav class="sidebar" class:sidebarClosed={ !sidebarOpen }>
     <div class="dummy">
         <button class="btn btn-sm btn-white btn-ctrl" onclick={ hideSidebar }><i class="icon-close"></i></button>
-        <button class="btn btn-sm btn-white btn-ctrl" onclick="{() => window.modal.showModal()}"><i class="icon-config"></i></button>
+        <button class="btn btn-sm btn-white btn-ctrl" onclick="{() => window.settings.showModal()}"><i class="icon-config"></i></button>
     </div>
 
     <h2>

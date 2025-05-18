@@ -39,3 +39,27 @@ main {
 .chapter-switch {
     margin-top: 40px;
 }
+
+
+// [ modal: settings ]
+.settings-block {
+    padding: 20px;
+    background: var(--c-white);
+    border-radius: var(--b-radius-sm);
+    flex-wrap: wrap;
+    gap: 20px;
+    @include flex-align(flex-start);
+
+    & + & {
+        margin-top: 20px;
+    }
+}
+
+.modal .settings-block input {
+    width: 100px;
+}
+
+.settings-block-title {
+    margin-top: 0;
+    flex: 1 0 100%;
+}

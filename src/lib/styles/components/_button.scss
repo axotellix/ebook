@@ -1,15 +1,16 @@
 // [ general ]
 button, .btn {
     display: inline-block;
-    margin-right: 6px;
-    margin-bottom: 6px;
     padding: 10px;
+    min-width: 40px;
+    min-height: 40px;
     background: var(--c-lite-20);
     font-weight: 600;
     color: #1d1d1d;
     border: none;
     border-radius: 6px;
-    outline: none;
+    outline: none !important;
+    box-sizing: border-box;
 
     * { color: var(--c-dark-0); }
 
@@ -35,6 +36,16 @@ button, .btn {
 
     &:hover {
         background: var(--c-lite-40); 
+    }
+}
+
+.btn-dark {
+    @extend .btn;
+    background: var(--c-lite-70);
+    color: var(--c-lite-0);
+
+    &:hover {
+        background: var(--c-lite-80); 
     }
 }
 

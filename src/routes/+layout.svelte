@@ -7,6 +7,7 @@
 
     // [ components ]
     import Sidebar from '$lib/components/Sidebar.svelte'
+    import Modal from '$lib/components/Modal.svelte'
     
 
     // [ PRESETS ]
@@ -18,6 +19,17 @@
     let chapter_prev = $derived(+chapter - 1)
     let chapter_next = $derived(+chapter + 1)
     const chapters_num = 11
+
+     // settings presets
+    let fontsize = $state(18) 
+    const fonts = ['Inter', 'Georgia']
+    let active_font = $state('Inter')
+
+     // apply > settings changes
+    $effect(() => {
+        document.documentElement.style.setProperty('--f-size-base', fontsize + 'px')
+        document.documentElement.style.setProperty('--f-font', active_font)
+    })
 
 
     // [ FUNCTIONS ] 
@@ -43,14 +55,28 @@
 <div class="app">
 
     <!-- [ Modal ] -->
-     <dialog id="modal" class="modal" aria-modal="true" open>
-        <header class="header">
-            <h2 class="modal-title">Modal</h2>
-            <button type="button" class="btn btn-sm btn-white btn-ctrl" onclick="{() => window.modal.close()}">
-                <i class="icon-close"></i>
-            </button>
-        </header>
-     </dialog>
+    <Modal id="settings" title="Настройки" backdrop>
+        {#snippet modalContent()}
+            <div class="settings-block">
+                <h5 class="settings-block-title">Размер шрифта</h5>
+                <button class="btn" onclick="{ () => --fontsize }">-</button>
+                <input type="number" bind:value={fontsize} />
+                <button class="btn" onclick="{ () => ++fontsize }">+</button>
+                <button class="btn btn-dark" onclick="{ () => fontsize = 18 }">по умолчанию</button>
+            </div>
+            <div class="settings-block">
+                <h5 class="settings-block-title">Шрифт</h5>
+                {#each fonts as font}
+                    <button class="btn select-option" 
+                      class:active={ font == active_font }
+                      onclick="{ () => active_font = font }">
+                        {font}
+                    </button>
+                {/each}
+                <button class="btn btn-dark" onclick="{ () => active_font = fonts[0] }">по умолчанию</button>
+            </div>
+        {/snippet}
+    </Modal>
 
     <!-- [ Sidebar ] -->
     <Sidebar {passSidebarState} />

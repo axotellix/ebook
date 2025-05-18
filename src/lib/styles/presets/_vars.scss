@@ -7,14 +7,11 @@
     --m-big: 100px;
     --m-large: 125px;
     
+
     // colors
-    --c-white: #ffffff;
-    --c-dark-white: #f9f9fa;
-    --c-grey: #9C9FA4;
-    --c-lite: #ecf0f1;
 
      //- (whites) 
-    --с-white:   #ffffff;
+    --c-white:   #ffffff;
     --c-lite-0:  #FDFEFE;   
     --c-lite-10: #F5F7F7;  
     --c-lite-20: #ECF0F0;  // + (sidebar)
@@ -49,6 +46,12 @@
 
      //- (text)
     --c-text-dark: var(--c-dark-0); 
+
+
+    // font
+    --f-font: "Inter", sans-serif;
+    --f-size-base: 28px;
+    
 
     // border-radius
     --b-radius-sm: 5px;

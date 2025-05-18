@@ -1,13 +1,14 @@
 @use "../presets/_mixins.scss" as *;
 
 // [ COMPONENT: Modal ]
-.modal {
+.modal[open] {
     position: fixed;
     z-index: 9999;
-    padding: 30px;
     width: 50%;
     aspect-ratio: 3/2;
+    padding: 0;
     background: var(--c-lite-20);
+    @include flex-align(def, def, column);
 
     &::backdrop {
         display: block;
@@ -16,11 +17,25 @@
     }
 } 
 
-.modal .header {
+.modal .modal-header {
     all: unset;
+    width: 100%;
+    padding: 20px;
+    flex: 0 1 auto;
+    box-sizing: border-box;
+    border-bottom: 2px solid var(--c-lite-30);
     @include flex-align(space-between);
 }
 
+
 .modal .modal-title, .modal .btn-ctrl {
     margin: 0;
+}
+
+.modal-content {
+    width: 100%;
+    flex: 1 1 auto;
+    box-sizing: border-box;
+    padding: 30px;
+    overflow-y: auto;
 }
