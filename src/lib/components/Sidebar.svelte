@@ -7,6 +7,7 @@
     // [ PRESETS ]
     let chapter = $derived(page.url.pathname.slice(1))
     let sidebarOpen = $state(true)
+    let desktop = $state(true)
     let { passSidebarState } = $props();
 
     // [ FUCNCTIONS ]
@@ -19,11 +20,37 @@
         passSidebarState(sidebarOpen)
     }
 
+    $effect(() => {
+
+        // close > sidebar after chapter switch (if mobile or tablet)
+        if( !desktop ) {
+            document.querySelectorAll('.sidebar li').forEach(( li ) => {
+                li.addEventListener('click', (e) => {
+                    sidebarOpen = false
+                })
+            })
+        }
+
+    })
+
     // [ LIFECYCLE HOOKS ]
     onMount(() => {
-        if ( document.querySelector('.sidebar').offsetWidth == 0 ) {
+
+        // define > if it desktop or not (so we can close sidebar after pagination)
+        window.addEventListener('resize', () => {
+            if ( window.matchMedia("(min-width: 900px)").matches ) {
+                desktop = true
+            } else {
+                desktop = false
+            }
+        })
+
+        // close > sidebar (when page loaded if mobile or tablet)
+        if ( window.matchMedia("(max-width: 900px)").matches ) {
            sidebarOpen = false 
+           desktop = false
         }
+        
     })
     
 </script>

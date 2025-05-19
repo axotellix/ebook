@@ -103,7 +103,7 @@
 
 
     // adjust > element colours for dark theme
-    ;root {
+    :root {
         scrollbar-color: var(--c-lite-70) var(--c-lite-20) !important;
     }
     .sidebar {
