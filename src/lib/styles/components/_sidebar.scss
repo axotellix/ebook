@@ -1,10 +1,23 @@
+// [ IMPROTS ]
 @use "../presets/mixins" as *;
+
+
+// [ PRESETS ]
+@mixin sidebarClosed {
+    width: 0;
+    display: none;
+    padding: 0;
+    flex: 0 1 0;
+
+    //: hack to prevent content glitching when sidebar is hidden
+    * { opacity: 0; transition: opacity 0s; }
+}
+
 
 .sidebar {
     $offset: 0px;
 
     position: sticky;
-    display: block;
     top: $offset; left: $offset;
     margin-right: 60px;
     padding: 16px;
@@ -23,13 +36,19 @@
     *:not(.btn) { opacity: 1; transition: opacity 0.2s 0.2s; }
 
     &.sidebarClosed {
-        width: 0;
-        padding: 0;
-        flex: 0 1 0;
-
-        //: hack to prevent content glitching when sidebar is hidden
-        * { opacity: 0; transition: opacity 0s; }
+       @include sidebarClosed; 
     }
+}
+
+// sidebar controls: close
+#btn-close-sidebar {
+    @include align(left, top, fixed, 20px, 20px);
+}
+
+// sidebar controls: open, settings
+.sidebar-controls {
+    gap: 10px;
+    @include flex-align(flex-start);
 }
 
 .sidebar-controls {

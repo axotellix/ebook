@@ -19,5 +19,11 @@
 @use "components/_modal.scss";
 @use "components/_form.scss";
 
+// [ * HIGHER SPECIFICITY * ]
+@use "_responsive.scss";
+
+// [ * HIGHER SPECIFICITY * ]
+@use "_responsive.scss";
+
 
 

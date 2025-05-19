@@ -1,3 +1,5 @@
+@use "../presets/mixins" as *;
+
 // [ general ]
 button, .btn {
     display: inline-block;
@@ -11,6 +13,7 @@ button, .btn {
     border-radius: 6px;
     outline: none;
     box-sizing: border-box;
+    @include flex-align;
 
     * { color: var(--c-dark-0); }
 
