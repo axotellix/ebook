@@ -12,8 +12,9 @@
 
     &::backdrop {
         display: block;
-        background: var(--c-dark-90);
-        opacity: 0.2;
+        background: #030306;
+        opacity: 0.25;
+        backdrop-filter: none;
     }
 } 
 

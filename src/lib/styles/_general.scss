@@ -12,6 +12,7 @@ html {
 body {
     margin: 0; padding: 0;   
     max-width: 100%; 
+    background: var(--c-white);
 }
 
 .app {
@@ -38,6 +39,12 @@ main {
 // [ pagination ]
 .chapter-switch {
     margin-top: 40px;
+    margin-bottom: 10px;
+    gap: 15px;
+    flex-wrap: wrap;
+    @include flex-align(flex-start);
+
+    hr { margin: 6px 0; }
 }
 
 
@@ -47,7 +54,7 @@ main {
     background: var(--c-white);
     border-radius: var(--b-radius-sm);
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 15px;
     @include flex-align(flex-start);
 
     & + & {
@@ -62,4 +69,11 @@ main {
 .settings-block-title {
     margin-top: 0;
     flex: 1 0 100%;
+}
+
+
+// [ other ]
+hr {
+    width: 100%;
+    flex-basis: 100%;
 }

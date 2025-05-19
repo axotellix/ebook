@@ -1,4 +1,9 @@
 // [ SCROLLBAR ]
+
+:root {
+    scrollbar-color: var(--c-lite-40) var(--c-lite-10);
+}
+
 ::-webkit-scrollbar, ::-moz-scrollbar, ::scrollbar {
     width: 7px;
     cursor: alias;

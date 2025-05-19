@@ -1,3 +1,5 @@
+@use "../components/_button.scss" as btn;
+
 :root {
 
     // margins
@@ -9,10 +11,12 @@
     
 
     // colors
+    --c-dark-white: #f9f9fa;
 
      //- (whites) 
     --c-white:   #ffffff;
     --c-lite-0:  #FDFEFE;   
+    --c-lite-5:  #f9f9fa;   
     --c-lite-10: #F5F7F7;  
     --c-lite-20: #ECF0F0;  // + (sidebar)
     --c-lite-30: #DDE4E5;  
@@ -50,10 +54,108 @@
 
     // font
     --f-font: "Inter", sans-serif;
-    --f-size-base: 28px;
+    --f-size-base: 18px;
+    --f-size-base-value: 18;
     
 
     // border-radius
     --b-radius-sm: 5px;
     
+}
+
+[data-theme="dark"] {
+    // Основные фоны
+    --c-white:   #26282C;  /* Ваш исходный цвет (базовый фон) */
+    --c-lite-0:  #292B30;  /* Промежуточный между --c-white и --c-lite-10 */
+    --c-lite-10: #2D3036;  /* Ваш исходный цвет */
+    --c-lite-20: #34373E;  
+    --c-lite-30: #3B3F47;  
+    --c-lite-40: #424750;  
+    --c-lite-50: #4A4F59;  
+    --c-lite-60: #525762;  
+    --c-lite-70: #5B606C;  
+    --c-lite-80: #646976;  
+    --c-lite-90: #6E7380;  
+
+    // Нейтральный серый (для текста/границ)
+    --c-grey:    #7A7F8C;  
+
+    // Светлые элементы (текст, акценты)
+    --c-dark-0:  #D0D4DA;  /* Основной текст */
+    --c-dark-10: #DDE1E6;  /* Заголовки */
+    --c-dark-20: #E8EBF0;  /* Подзаголовки */
+    --c-dark-30: #F2F4F8;  /* Яркие акценты */
+    --c-dark-40: #F7F9FC;  
+    --c-dark-50: #FBFCFD;  
+    --c-dark-60: #FDFEFF;  
+    --c-dark-70: #FFFFFF;  
+    --c-dark-80: #FFFFFF;  
+    --c-dark-90: #FFFFFF;  
+    --c-dark-100:#FFFFFF;  
+    --c-black:   #FFFFFF;  
+
+    // Акценты
+    --c-link:     #9ABCF2;  /* Яркий акцент (синий) */
+    --c-link-dark:#3D72C2;  /* Приглушённый акцент */
+
+    // Текст
+    --c-text-dark: var(--c-dark-0);
+
+
+    // adjust > element colours for dark theme
+    ;root {
+        scrollbar-color: var(--c-lite-70) var(--c-lite-20) !important;
+    }
+    .sidebar {
+        background-color: var(--c-lite-10);
+    }
+    .sidebar .navActive > a {
+        background: var(--c-lite-30);
+    }
+    .sidebar .table-of-contents li a {
+        &:hover {
+           background: var(--c-lite-20); 
+        }
+    }
+    .sidebar .table-of-contents > li > a {
+        font-weight: 700;
+    }
+
+    .btn:not(.btn-white, .btn-dark) {
+        @extend .btn-dark-theme;
+    }
+
+    .modal[open] {
+        background: var(--c-white);
+
+        &::backdrop {
+            opacity: 0.4;
+        }
+    }
+    .modal .btn-ctrl {
+        background: var(--c-lite-10);
+
+        &:hover {
+            background: var(--c-lite-20);
+        }
+    }
+    .modal .settings-block {
+        background: var(--c-lite-10);
+    }
+
+    input {
+        border-color: rgba(250, 252, 255, 0.1);
+    }
+    .select-option {
+        padding: 0px 15px !important;
+        background: transparent !important;
+        outline: 2px solid var(--c-lite-30) !important;
+
+        &:hover {
+            background: var(--c-lite-20) !important;
+        }
+    }
+    .select-option.active {
+        background: var(--c-lite-30) !important;
+    }
 }

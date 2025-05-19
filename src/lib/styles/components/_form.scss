@@ -15,9 +15,17 @@ input {
 // }
 .select-option {
     background: transparent;
-    outline: 2px solid var(--c-lite-30) !important;
+    outline: 2px solid var(--c-lite-30);
     outline-offset: 2px;
     padding: 0px 15px;
+
+    & + & {
+        margin-left: 2px;
+    }
+
+    &:hover {
+        background: var(--c-lite-20);
+    }
 }
 .select-option.active {
     background: var(--c-lite-30);

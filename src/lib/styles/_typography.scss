@@ -29,7 +29,7 @@ h5 {
 // [ BODY TEXT ]
 p, ul, ol, blockquote {
     font-size: var(--f-size-base);
-    line-height: var(--f-size-base) / 10;
+    line-height: calc(var(--f-size-base-value) / 10 * 1rem);
 } 
 
 

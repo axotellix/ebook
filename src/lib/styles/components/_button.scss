@@ -9,10 +9,14 @@ button, .btn {
     color: #1d1d1d;
     border: none;
     border-radius: 6px;
-    outline: none !important;
+    outline: none;
     box-sizing: border-box;
 
     * { color: var(--c-dark-0); }
+
+    &:focus {
+        box-shadow: none !important;
+    }
 
     &:hover {
         background: var(--c-lite-30); 
@@ -29,6 +33,16 @@ button, .btn {
 
 
 // [ mod: colour ]
+.btn-dark-theme {
+    @extend .btn;
+    background: var(--c-lite-30);
+    color: var(--c-dark-0);
+
+    &:hover {
+        background: var(--c-lite-40); 
+    }
+}
+
 .btn-white {
     @extend .btn;
     background: var(--c-white);

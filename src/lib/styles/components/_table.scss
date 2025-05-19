@@ -5,24 +5,24 @@ table {
 }
 
 tr {
-    background-color: #ffffff;
-    border-top: 1px solid #e2e2e3;
+    background-color: var(--c-white);
+    border-top: 1px solid var(--c-lite-30);
     transition: background-color .5s;
 }
 
 tr:nth-child(2n) {
-    background-color: #f6f6f7;
+    background-color: var(--c-lite-10);
 }
 
 th, td {
-    border: 1px solid #e2e2e3;
+    border: 1px solid var(--c-lite-30);
     padding: 8px 16px;
 }
 
 th {
     text-align: left;
-    color: #67676c;
-    background-color: #f6f6f7;
+    color: var(--c-lite-80);
+    background-color: var(--c-lite-10);
 }
 
 th p {
@@ -32,5 +32,5 @@ th p {
 hr {
     margin: 16px 0;
     border: none;
-    border-top: 1px solid #e2e2e3;
+    border-top: 1px solid var(--c-lite-30);
 }

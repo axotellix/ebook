@@ -4,6 +4,7 @@
     
     // [ other ]
     import { page } from '$app/state'
+    import { onMount } from 'svelte'
 
     // [ components ]
     import Sidebar from '$lib/components/Sidebar.svelte'
@@ -22,13 +23,33 @@
 
      // settings presets
     let fontsize = $state(18) 
-    const fonts = ['Inter', 'Georgia']
+    const fonts = ['Inter', 'Noto Serif']
     let active_font = $state('Inter')
+    let system_theme = 'light' 
+    let theme = $state('light')
 
+     // get > settings from localStorage (if exist)
+    onMount(() => {
+        fontsize = localStorage.getItem("fontsize") || 18
+        active_font = localStorage.getItem("font") || 'Inter'
+        system_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+        theme = localStorage.getItem("theme") || system_theme || 'light'
+    })
+    
      // apply > settings changes
     $effect(() => {
+
+        // apply > settings
         document.documentElement.style.setProperty('--f-size-base', fontsize + 'px')
+        document.documentElement.style.setProperty('--f-size-base-value', fontsize)
         document.documentElement.style.setProperty('--f-font', active_font)
+        document.querySelector('html').setAttribute('data-theme', theme)
+
+        // save > settings (locally)
+        localStorage.setItem('fontsize', fontsize)
+        localStorage.setItem('font', active_font)
+        localStorage.setItem('theme', theme)
+
     })
 
 
@@ -69,11 +90,17 @@
                 {#each fonts as font}
                     <button class="btn select-option" 
                       class:active={ font == active_font }
-                      onclick="{ () => active_font = font }">
+                      onclick="{ () => active_font = font }"
+                      style="font-family: {font}">
                         {font}
                     </button>
                 {/each}
                 <button class="btn btn-dark" onclick="{ () => active_font = fonts[0] }">по умолчанию</button>
+            </div>
+            <div class="settings-block">
+                <h5 class="settings-block-title">Тема</h5>
+                <button class="btn select-option" class:active={ theme == "light" } onclick="{ () => theme = 'light' }">Светлая</button>
+                <button class="btn select-option" class:active={ theme == "dark" } onclick="{ () => theme = 'dark' }">Темная</button>
             </div>
         {/snippet}
     </Modal>
