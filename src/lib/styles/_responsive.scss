@@ -1,0 +1,46 @@
+@use "./presets/mixins" as *;
+@use "./components/sidebar" as sidebar;
+
+// [ PRESETS ]
+ //- [ breakpoints ]
+$screen-xs: 576px;
+$screen-sm: 768px;
+$screen-md: 900px;
+$screen-lg: 1200px;
+
+
+// [ RESTYLING ]
+ //- [ 0-900px ]
+@media screen and (max-width: $screen-md) {
+
+    .sidebar {
+        @include sidebar.sidebarClosed;
+    }
+
+    header.menu {
+        z-index: 9999;
+        width: 100%;
+        min-height: 30px;
+        padding: 5px 10px;
+        box-sizing: border-box;
+        background: rgba(var(--c-lite-10), 0.7);
+        backdrop-filter: blur(6px);
+        border-bottom: 2px solid var(--c-lite-20);
+        @include flex-align(flex-start);
+        @include align(center, top, fixed);
+    }
+    #btn-close-sidebar {
+        $size: 30px;
+        position: static;
+        width: $size; min-width: $size;
+        height: $size; min-height: $size;
+        font-size: 0.9em;
+    }
+
+    main {
+        max-width: 90%;
+        margin: 0 auto;
+        margin-top: 15px;
+    }   
+
+}

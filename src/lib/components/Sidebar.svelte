@@ -2,6 +2,7 @@
     // [ other ]
     import { page } from '$app/state'
     import { fade } from 'svelte/transition'
+    import { onMount } from 'svelte'
 
     // [ PRESETS ]
     let chapter = $derived(page.url.pathname.slice(1))
@@ -17,14 +18,23 @@
         sidebarOpen = true
         passSidebarState(sidebarOpen)
     }
+
+    // [ LIFECYCLE HOOKS ]
+    onMount(() => {
+        if ( document.querySelector('.sidebar').offsetWidth == 0 ) {
+           sidebarOpen = false 
+        }
+    })
     
 </script>
 
 <!-- [ btn: hide Sidebar ] -->
 {#if !sidebarOpen}
-<button class="btn-sm" onclick={ openSidebar } style="position: fixed; top: 20px; left: 20px;" in:fade={{ delay: 200, duration: 200 }}>
-    <i class="icon-menu"></i>
-</button>
+<header class="menu">
+    <button class="btn-sm btn-ctrl" id="btn-close-sidebar" onclick={ openSidebar } in:fade={{ delay: 200, duration: 200 }}>
+        <i class="icon-menu"></i>
+    </button>
+</header>
 {/if}
 
 <!-- [ Sidebar ] -->
