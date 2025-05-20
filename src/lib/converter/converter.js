@@ -4,6 +4,7 @@ import mammoth from "mammoth";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import { log } from "console";
 
 
 // [---- PRESETS ----]
@@ -20,7 +21,7 @@ function transformTable(table) {
 	// check > if first row is bold (potential thead)
 	if (table.children[0].children[0].children[0].children[0].isBold) {
 		table.children[0].isHeader = true   // set > row as <thead>
-	}
+	} 
 
 	return table
 
@@ -70,10 +71,11 @@ const splitByH1 = ( h ) => {
 // set > options for the conversion
 const options = {
 	styleMap: [
+		"p[style-name='List Item Separate'] => p.li-item-separate:fresh",
 		"p[style-name='Highlight'] => p.highlight:fresh",
 		"p[style-name='Table Caption'] => p.table-caption:fresh",
 		"p[style-name='Blockquote'] => blockquote:fresh",
-		"p[style-name='Image Caption'] => p.pic-caption:fresh",
+		"p[style-name='Picture Caption'] => p.pic-caption:fresh",
 		"p[style-name='Wrapped Unit Title'] => div.wrapped-unit > h5.wrapped-unit-title:fresh",
 		"p[style-name='Wrapped Unit OL'] => div.wrapped-unit > ol.wrapped-unit-ol > li:fresh",
 	],

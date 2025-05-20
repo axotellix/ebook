@@ -5,13 +5,21 @@ table {
 }
 
 tr {
-    background-color: var(--c-white);
+    background: var(--c-white);
     border-top: 1px solid var(--c-lite-30);
     transition: background-color .5s;
+
+    &:hover { 
+        background: var(--c-lite-20);
+    }
 }
 
 tr:nth-child(2n) {
-    background-color: var(--c-lite-10);
+    background: var(--c-lite-5) !important;
+
+    &:hover { 
+        background: var(--c-lite-20) !important;
+    }
 }
 
 th, td {
@@ -22,7 +30,7 @@ th, td {
 th {
     text-align: left;
     color: var(--c-lite-80);
-    background-color: var(--c-lite-10);
+    background: var(--c-lite-20);
 }
 
 th p {

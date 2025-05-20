@@ -50,7 +50,7 @@
            sidebarOpen = false 
            desktop = false
         }
-        
+
     })
     
 </script>
@@ -101,37 +101,37 @@
                 <li><a href="/3/#_Toc193796570">3.2. Понятие лидерства <span>21</span></a></li>
             </ul>
         </li>
-        <li>
+        <li class:navActive={ chapter === "4" }>
             <a href="/4/#_Toc193796571">Тема 4. Лидерство, управление и власть <span>26</span></a>
             <ul>
                 <li><a href="/4/#_Toc193796572">4.1. Лидерство и управление <span>26</span></a></li>
                 <li><a href="/4/#_Toc193796573">4.2. Лидерство и власть <span>28</span></a></li>
             </ul>
         </li>
-        <li>
+        <li class:navActive={ chapter === "5" }>
             <a href="/5/#_Toc193796574">Тема 5. Индивидуальное лидерство <span>31</span></a>
             <ul>
                 <li><a href="/5/#_Toc193796575">5.1. Лидерство как проявление индивидуальных черт <span>31</span></a></li>
                 <li><a href="/5/#_Toc193796576">5.2. Индивидуальное лидерство как реализация поведенческих моделей <span>34</span></a></li>
             </ul>
         </li>
-        <li>
+        <li class:navActive={ chapter === "6" }>
             <a href="/6/#_Toc193796577">Тема 6. Групповое лидерство <span>37</span></a>
             <ul>
                 <li><a href="/6/#_Toc193796578">6.1. Лидерство через взаимодействие лидера с группой и с отдельными членами группы <span>37</span></a></li>
                 <li><a href="/6/#_Toc193796579">6.2. Процесс формирования и изменения лидерства в группе <span>44</span></a></li>
             </ul>
         </li>
-        <li>
+        <li class:navActive={ chapter === "7" }>
             <a href="/7/#_Toc193796580">Тема 7. Формы лидерства <span>50</span></a>
             <ul>
                 <li><a href="/7/#_Toc193796581">7.1. Основные тенденции развития лидерства на современном этапе <span>50</span></a></li>
                 <li><a href="/7/#_Toc193796582">7.2. Формы лидерства <span>50</span></a></li>
             </ul>
         </li>
-        <li><a href="/8/#_Toc193796583">СИТУАЦИОННЫЕ ЗАДАЧИ ДЛЯ АНАЛИЗА <span>63</span></a></li>
-        <li><a href="/9/#_Toc193796584">ПРОВЕРОЧНЫЕ ТЕСТЫ <span>69</span></a></li>
-        <li><a href="/10/#_Toc193796585">ВОПРОСЫ ДЛЯ ИТОГОВОГО КОНРОЛЯ <span>80</span></a></li>
-        <li><a href="/11/#_Toc193796586">СПИСОК РЕКОМЕНДУЕМОЙ ЛИТЕРАТУРЫ <span>81</span></a></li>
+        <li class:navActive={ chapter === "8" }><a href="/8/#_Toc193796583">СИТУАЦИОННЫЕ ЗАДАЧИ ДЛЯ АНАЛИЗА <span>63</span></a></li>
+        <li class:navActive={ chapter === "9" }><a href="/9/#_Toc193796584">ПРОВЕРОЧНЫЕ ТЕСТЫ <span>69</span></a></li>
+        <li class:navActive={ chapter === "10" }><a href="/10/#_Toc193796585">ВОПРОСЫ ДЛЯ ИТОГОВОГО КОНРОЛЯ <span>80</span></a></li>
+        <li class:navActive={ chapter === "11" }><a href="/11/#_Toc193796586">СПИСОК РЕКОМЕНДУЕМОЙ ЛИТЕРАТУРЫ <span>81</span></a></li>
     </ul>
 </nav>

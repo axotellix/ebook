@@ -34,8 +34,8 @@ p, ul, ol, blockquote {
 
 
 // [ LISTS ]
-ol:not(.sidebar ol) li, 
- ul:not(.sidebar ul) li {
+// normal list
+%li {
     margin: 15px 0;
     padding: 20px;
     background: var(--c-lite-10);
@@ -48,7 +48,42 @@ ol:not(.sidebar ol) li,
     &:hover {
         background: var(--c-lite-30);
     }
+}
+ol:not(.sidebar ol) li, 
+ ul:not(.sidebar ul) li {
+    @extend %li;
 } 
+
+// nested list
+ol:not(.sidebar ol) ol, 
+ ol:not(.sidebar ol) ul,
+ ul:not(.sidebar ul) ol,
+ ul:not(.sidebar ul) ul {
+
+    li {
+        padding: 8px 18px;
+        background: var(--c-lite-0);
+    }
+    
+}
+// nested list (parent :hover)
+ol:not(.sidebar ol) > li:hover ol, 
+ ol:not(.sidebar ol) > li:hover ul,
+ ul:not(.sidebar ul) > li:hover ol,
+ ul:not(.sidebar ul) > li:hover ul {
+
+    li {
+        background: var(--c-lite-10);
+    }
+    li:hover {
+        background: var(--c-lite-0);
+    }
+    
+}
+// nested list (change marker)
+ol:not(.sidebar ol) ol {
+    list-style: lower-latin;
+}
 
 ol.list-minimalistic li, ul.list-minimalistic li {
     padding: 0 !important;
@@ -85,10 +120,17 @@ blockquote {
 
 //: simple wrapped paragraph
 .highlight {
+    margin-top: 30px;
+    margin-bottom: 15px;
     padding: 15px 25px;
     max-width: max-content;
+    font-weight: 500;
     background: var(--c-lite-10);
     border-radius: var(--b-radius-sm);
+
+    & + p {
+        margin-top: 15px;
+    }
 }
 
 //: wrapped unit (title + content)
@@ -118,6 +160,11 @@ blockquote {
         margin: 5px 0 !important;
         // background: transparent !important;
     }
+}
+
+.li-item-separate {
+    font-weight: 500;
+    @extend %li;
 }
 
 //: picture captions

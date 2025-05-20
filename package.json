@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev --host 0.0.0.0",
-		"convert": "node src/lib/converter/converter.js && explorer src\\lib\\converter",
+		"convert": "node src/lib/converter/converter.js",
 		"build": "vite build",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''"
