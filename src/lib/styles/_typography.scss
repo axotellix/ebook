@@ -83,6 +83,14 @@ blockquote {
     border-left: 5px solid var(--c-lite-50);
 }
 
+//: simple wrapped paragraph
+.highlight {
+    padding: 15px 25px;
+    max-width: max-content;
+    background: var(--c-lite-10);
+    border-radius: var(--b-radius-sm);
+}
+
 //: wrapped unit (title + content)
 .wrapped-unit {
     display: block;

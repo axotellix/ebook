@@ -7,9 +7,11 @@ import { fileURLToPath } from "url";
 
 
 // [---- PRESETS ----]
-// get > current folder
-const __filename = fileURLToPath(import.meta.url);
-const currentFolder = path.dirname(__filename);
+// define > paths & filename
+const __full_path_with_filename = fileURLToPath(import.meta.url)
+const currentFolder = path.dirname(__full_path_with_filename)
+const outputFolder = path.join(currentFolder, '..', 'chapters')
+const filename = 'book.docx'
 
 
 // transform > table
@@ -68,6 +70,9 @@ const splitByH1 = ( h ) => {
 // set > options for the conversion
 const options = {
 	styleMap: [
+		"p[style-name='Highlight'] => p.highlight:fresh",
+		"p[style-name='Table Caption'] => p.table-caption:fresh",
+		"p[style-name='Blockquote'] => blockquote:fresh",
 		"p[style-name='Image Caption'] => p.pic-caption:fresh",
 		"p[style-name='Wrapped Unit Title'] => div.wrapped-unit > h5.wrapped-unit-title:fresh",
 		"p[style-name='Wrapped Unit OL'] => div.wrapped-unit > ol.wrapped-unit-ol > li:fresh",
@@ -78,7 +83,7 @@ const options = {
 
 // [---- MAIN ----]
 // convert > docx to html
-mammoth.convertToHtml({ path: currentFolder + "/doc.docx" }, options)
+mammoth.convertToHtml({ path: currentFolder + "/" + filename }, options)
 	.then(function (result) {
 		let chapters = []
 		let html = result.value
@@ -87,11 +92,11 @@ mammoth.convertToHtml({ path: currentFolder + "/doc.docx" }, options)
 
 		// save > html
 		for( let i = 0; i < chapters.length; i++ ) {
-			fs.writeFile(currentFolder + `/output-${i}.html`, chapters[i], function (err) {
+			fs.writeFile(outputFolder + `/${i}.svelte`, chapters[i], function (err) {
 				if (err) {
 					return console.log(err);
 				}
-				console.log(`The file output-${i}.html was created!`);
+				console.log(`File ${i}.svelte was created!`);
 			});
 		}
 
