@@ -22,6 +22,9 @@
 
     $effect(() => {
 
+        // save > current progress
+        localStorage.setItem('chapter', chapter)
+
         // close > sidebar after chapter switch (if mobile or tablet)
         if( !desktop ) {
             document.querySelectorAll('.sidebar li').forEach(( li ) => {
