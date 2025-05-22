@@ -1,8 +1,39 @@
+// table
 table {
     border-collapse: collapse;
     margin: 20px 0;
-    overflow-x: auto;
+    overflow-x: auto !important;
+
+    &.table-layout-auto {
+        table-layout: auto;
+    }
 }
+
+ //- mods
+@for $i from 1 through 5 {
+    @for $j from 5 through 50 {
+        @if $j % 5 == 0 {
+            .table-col#{$i}-w#{$j} {
+                td:nth-child(#{$i}), th:nth-child(#{$i}) {
+                    width: calc(1% * $j);    
+                }
+            }
+        }
+    }
+}
+@for $i from 1 through 5 {
+    .table-col#{$i}-center {
+        td:first-child, th:first-child {
+            text-align: center;    
+        }
+    }
+}
+.table-col1-bold {
+    td:first-child {
+        font-weight: 600;    
+    }
+}
+
 
 tr {
     background: var(--c-white);
@@ -23,6 +54,7 @@ tr:nth-child(2n) {
 }
 
 th, td {
+    min-width: 30px !important;
     border: 1px solid var(--c-lite-30);
     padding: 8px 16px;
 }

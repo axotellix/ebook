@@ -20,6 +20,7 @@
 @use "components/_form.scss";
 
 // [ * HIGHER SPECIFICITY * ]
+@use "_atomic.scss";
 @use "_responsive.scss";
 
 

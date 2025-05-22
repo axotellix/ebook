@@ -81,3 +81,9 @@ hr {
 img {
     min-width: 75%;
 }
+
+.scrollable-x {
+    width: 100%;
+    max-width: 100% !important;
+    overflow-x: auto;
+}

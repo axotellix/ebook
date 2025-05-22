@@ -49,9 +49,18 @@ p, ul, ol, blockquote {
         background: var(--c-lite-30);
     }
 }
+%li-lighter {
+    @extend %li;
+    background: var(--c-lite-0);
+}
+
 ol:not(.sidebar ol) li, 
  ul:not(.sidebar ul) li {
     @extend %li;
+} 
+tr:nth-child(even) ol:not(.sidebar ol) li, 
+ tr:nth-child(even) ul:not(.sidebar ul) li {
+    @extend %li-lighter;
 } 
 
 // nested list
